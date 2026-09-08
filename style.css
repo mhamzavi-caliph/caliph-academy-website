@@ -863,3 +863,8 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 .logo-card img { max-width: 100%; width: 440px; height: auto; }
 .footer-utm { margin-top: 1.1rem; font-size: .72rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .06em; }
 .footer-utm img { display: block; height: 46px; width: auto; margin-top: .55rem; background: #fff; border-radius: 8px; padding: 6px 10px; }
+
+/* Hero "in collaboration with UTM SPACE" strip */
+.hero-collab { display: flex; align-items: center; gap: .85rem; margin-top: 1.7rem; flex-wrap: wrap; }
+.hero-collab span { font-size: .74rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.68); }
+.hero-collab img { height: 34px; width: auto; background: #fff; border-radius: 8px; padding: 5px 11px; box-shadow: 0 6px 16px rgba(0,0,0,.16); }
