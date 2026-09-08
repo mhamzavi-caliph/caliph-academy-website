@@ -898,5 +898,5 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 .blog-embed a{color:var(--gold,#c68a17)}
 
 /* ---- LEB brand panel ---- */
-.leb-brand{max-width:240px;width:70%;background:#fff;border-radius:14px;padding:1.4rem 1.6rem;box-shadow:0 12px 30px rgba(0,0,0,.18)}
-@media (max-width:720px){.leb-brand{width:78%;max-width:220px}}
+.leb-brand{max-width:300px;width:88%;background:#fff;border-radius:14px;padding:1.6rem 1.9rem;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+@media (max-width:720px){.leb-brand{width:88%;max-width:275px}}
