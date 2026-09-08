@@ -121,11 +121,24 @@
   // Contact / enquiry form (front-end demo only)
   var form = document.getElementById('enquiry-form');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    var showSuccess = function () {
       var ok = document.getElementById('form-success');
       form.style.display = 'none';
       if (ok) ok.style.display = 'block';
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+        .then(function (r) { if (!r.ok) throw new Error('bad status'); showSuccess(); })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send Enquiry'; }
+          alert('Sorry, we could not send your enquiry just now. Please email info@caliphgroup.com and we will get back to you.');
+        });
     });
+    // show thank-you if Netlify redirected back after a no-JS submit
+    if (/[?&]sent=1/.test(location.search)) showSuccess();
   }
 })();

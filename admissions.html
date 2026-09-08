@@ -102,6 +102,7 @@
       <span class="eyebrow">Programme Fees</span>
       <h2>One fee, three qualifications</h2>
       <p>The Double Diploma fee covers your MQA Diploma, the London Examinations Board Advanced Diploma, and the LOYLA leadership expedition.</p>
+      <div class="text-center mt-2"><a href="caliph-academy-brochure.pdf" class="btn btn-teal" download>📄 Download Full Brochure (PDF)</a></div>
     </div>
 
     <div class="fees reveal">
@@ -213,7 +214,9 @@
       </div>
 
       <div>
-        <form id="enquiry-form" class="card" style="padding:2rem">
+        <form id="enquiry-form" class="card" name="enquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/admissions.html?sent=1" style="padding:2rem">
+          <input type="hidden" name="form-name" value="enquiry">
+          <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
           <div class="form-grid">
             <div class="field"><label for="fname">First name</label><input id="fname" name="fname" type="text" required></div>
             <div class="field"><label for="lname">Last name</label><input id="lname" name="lname" type="text" required></div>
@@ -278,7 +281,7 @@
         <li><a href="curriculum.html">Curriculum</a></li><li><a href="loyla.html">LOYLA</a></li><li><a href="careers.html">Careers</a></li><li><a href="about.html">About Us</a></li></ul></div>
       <div><h4>Admissions</h4><ul class="footer-links">
         <li><a href="admissions.html">How to Apply</a></li><li><a href="admissions.html#requirements">Entry Requirements</a></li>
-        <li><a href="admissions.html#enquiry">Request Info</a></li></ul></div>
+        <li><a href="admissions.html#enquiry">Request Info</a></li><li><a href="caliph-academy-brochure.pdf" download>Download Brochure</a></li></ul></div>
       <div><h4>Accreditation</h4>
         <p style="margin-bottom:1rem">Recognised by MQA (Malaysia) and the London Examinations Board (UK).</p>
         <div class="accred-mini"><img src="img/mqa-logo-t.png" alt="MQA"><img src="img/leb-logo-t.png" alt="London Examinations Board"></div><div class="footer-mqa">MQA Approval: <strong>MQA/PA18855</strong></div>
