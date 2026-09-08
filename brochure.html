@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caliph Academy — Programme Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal-900:#0a2e2f; --teal-800:#0d3b3c; --teal-700:#114748; --teal-600:#1a5c5d; --teal-500:#2a7a7b;
+  --gold-500:#f5b937; --gold-600:#e0a41f; --gold-100:#fdf3d9;
+  --ink:#14211f; --body:#46514f; --muted:#7b8483; --line:#e5e9e8; --soft:#f6f8f7;
+  --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+html,body{margin:0;padding:0;}
+body{font-family:var(--font); color:var(--body); background:#8a9694; line-height:1.5; font-size:10.5pt;}
+h1,h2,h3,h4{font-family:var(--serif); color:var(--ink); margin:0; line-height:1.12; font-weight:600; letter-spacing:-.01em;}
+
+/* ---- A4 pages ---- */
+@page{ size:A4; margin:0; }
+.page{
+  width:210mm; height:297mm; background:#fff; position:relative; overflow:hidden;
+  margin:8mm auto; box-shadow:0 6px 30px rgba(0,0,0,.25);
+  page-break-after:always; break-after:page;
+}
+.page:last-child{ page-break-after:auto; break-after:auto; }
+.pad{ padding:14mm 15mm; height:100%; display:flex; flex-direction:column; }
+
+@media print{
+  body{background:#fff;}
+  .page{ margin:0; box-shadow:none; }
+}
+
+/* ---- shared bits ---- */
+.eyebrow{ display:inline-block; color:var(--gold-600); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:7.5pt; margin-bottom:5pt; }
+.pill{ display:inline-block; background:rgba(245,185,55,.16); border:1px solid rgba(245,185,55,.45); color:var(--gold-500); font-weight:700; font-size:7.5pt; letter-spacing:.08em; text-transform:uppercase; padding:5pt 12pt; border-radius:999px; }
+.grad{ color:var(--gold-500); }
+.checks{ list-style:none; margin:6pt 0 0; padding:0; }
+.checks li{ position:relative; padding:3.5pt 0 3.5pt 18pt; font-size:9.5pt; border-bottom:.75pt dashed var(--line); }
+.checks li:last-child{border-bottom:0;}
+.checks li::before{ content:"✓"; position:absolute; left:0; top:3.5pt; width:12pt; height:12pt; background:var(--gold-100); color:var(--gold-600); border-radius:50%; display:grid; place-items:center; font-size:7pt; font-weight:800; }
+.ornament{ text-align:center; color:var(--gold-500); }
+.ornament svg{ width:150pt; height:auto; }
+
+/* running header for content pages */
+.rhead{ display:flex; align-items:center; justify-content:space-between; border-bottom:1.5pt solid var(--line); padding-bottom:8pt; margin-bottom:12pt; }
+.rhead img{ height:26pt; }
+.rhead .rt{ font-family:var(--serif); font-size:11pt; color:var(--teal-800); font-weight:600; }
+.rfoot{ margin-top:auto; padding-top:8pt; border-top:1.5pt solid var(--line); display:flex; justify-content:space-between; align-items:center; font-size:7.5pt; color:var(--muted); }
+.rfoot b{ color:var(--teal-700); }
+
+/* cards */
+.mini{ background:#fff; border:1px solid var(--line); border-radius:10pt; padding:10pt 11pt; }
+.mini h3{ font-size:10.5pt; margin-bottom:2pt; }
+.mini p{ margin:0; font-size:8.5pt; color:var(--body); }
+.ic{ width:26pt; height:26pt; border-radius:7pt; display:grid; place-items:center; background:linear-gradient(135deg,var(--teal-700),var(--teal-900)); color:var(--gold-500); font-size:12pt; margin-bottom:6pt; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:9pt; }
+.grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:9pt; }
+
+/* pillars */
+.pillar{ border-radius:10pt; padding:10pt 11pt; color:#fff; }
+.pillar.p1{ background:linear-gradient(150deg,var(--teal-700),var(--teal-900)); }
+.pillar.p2{ background:linear-gradient(150deg,#b9871a,var(--gold-600)); color:var(--teal-900); }
+.pillar.p3{ background:linear-gradient(150deg,var(--teal-600),var(--teal-800)); }
+.pillar h3{ color:inherit; font-size:10.5pt; margin-bottom:2pt; }
+.pillar p{ margin:0 0 6pt; font-size:8pt; opacity:.9; }
+.pillar .fig{ font-family:var(--serif); font-size:15pt; font-weight:700; }
+.pillar .fig small{ font-size:7pt; opacity:.85; font-family:var(--font); font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+
+/* section title */
+.stitle{ font-size:15pt; color:var(--teal-800); margin-bottom:7pt; }
+.lead{ font-size:9.5pt; color:var(--body); }
+
+/* fee cards */
+.fee{ border:1px solid var(--line); border-radius:11pt; overflow:hidden; }
+.fee .fh{ padding:8pt 11pt; color:#fff; background:linear-gradient(135deg,var(--teal-700),var(--teal-900)); }
+.fee.intl .fh{ background:linear-gradient(135deg,var(--gold-500),var(--gold-600)); color:var(--teal-900); }
+.fee .fh h3{ color:inherit; font-size:11pt; }
+.fee .fb{ padding:9pt 11pt; text-align:center; }
+.fee .price{ font-family:var(--serif); font-size:20pt; font-weight:700; color:var(--teal-700); }
+.fee.intl .price{ color:var(--gold-600); }
+.fee .inc{ list-style:none; margin:7pt 0 0; padding:7pt 0 0; border-top:.75pt dashed var(--line); text-align:left; }
+.fee .inc li{ font-size:8pt; padding:2pt 0 2pt 13pt; position:relative; }
+.fee .inc li::before{ content:"✓"; position:absolute; left:0; color:var(--gold-600); font-weight:800; }
+
+.stepn{ display:flex; gap:8pt; margin-bottom:6pt; }
+.stepn > b{ flex-shrink:0; width:18pt; height:18pt; border-radius:50%; background:var(--teal-800); color:var(--gold-500); display:grid; place-items:center; font-family:var(--serif); font-size:9pt; }
+.stepn div b{ color:var(--teal-800); font-weight:700; }
+.stepn div{ font-size:8.5pt; }
+.stepn div b2{ font-weight:700; color:var(--ink); }
+
+/* curriculum page */
+.cur-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8pt; }
+.cur-sem{ border:1px solid var(--line); border-radius:9pt; overflow:hidden; break-inside:avoid; }
+.cur-sem .sh{ background:linear-gradient(120deg,var(--teal-800),var(--teal-900)); color:#fff; padding:5pt 8pt; display:flex; justify-content:space-between; align-items:baseline; }
+.cur-sem .sh b{ font-family:var(--serif); font-size:9pt; color:#fff; }
+.cur-sem .sh span{ font-size:7pt; color:var(--gold-500); font-weight:800; }
+.cur-sem ul{ list-style:none; margin:0; padding:4pt 8pt 5pt; }
+.cur-sem li{ display:flex; justify-content:space-between; gap:6pt; font-size:7.6pt; padding:1.6pt 0; border-bottom:.5pt dotted var(--line); line-height:1.25; }
+.cur-sem li:last-child{border-bottom:0;}
+.cur-sem li .cn{ display:flex; align-items:flex-start; gap:4pt; }
+.cur-sem li .dot{ display:inline-block; width:5.5pt; height:5.5pt; border-radius:1.5pt; margin-top:2pt; flex-shrink:0; }
+.dot.cc{background:var(--teal-600);} .dot.dc{background:var(--gold-500);} .dot.co{background:#1d2a5b;}
+.cur-sem li b{ color:var(--teal-800); font-weight:800; }
+.cur-legend{ display:flex; gap:14pt; font-size:7.5pt; color:var(--body); margin:7pt 0 9pt; }
+.cur-legend span{ display:flex; align-items:center; gap:5pt; }
+.cur-legend .dot{ width:8pt; height:8pt; border-radius:2pt; display:inline-block; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 · COVER ============================ -->
+<section class="page" style="background:linear-gradient(160deg,var(--teal-800),var(--teal-900));">
+  <div style="position:absolute; inset:0; background:url(img/pattern-gold.svg); background-size:80pt; opacity:.09;"></div>
+  <img src="img/medallion.svg" alt="" style="position:absolute; right:-60pt; bottom:-60pt; width:340pt; opacity:.16;">
+  <div class="pad" style="position:relative; color:#fff;">
+    <img src="img/logo-footer.png" alt="Caliph Academy" style="height:52pt; align-self:flex-start;">
+
+    <div style="margin-top:auto; margin-bottom:auto;">
+      <span class="pill">✦ Double Diploma · Dual Recognition</span>
+      <h1 style="color:#fff; font-size:40pt; margin-top:16pt;">Double Diploma in Business Administration in <span class="grad">Muamalat</span></h1>
+      <p style="font-size:12pt; color:rgba(255,255,255,.9); max-width:150mm; margin-top:12pt;">
+        Two globally trusted qualifications — accredited by the <b>Malaysian Qualifications Agency (MQA)</b> and the <b>London Examinations Board (UK)</b> — plus <b>LOYLA</b>, an exclusive leadership expedition to Oxford &amp; London.
+      </p>
+
+      <div style="display:flex; align-items:center; gap:10pt; margin-top:18pt;">
+        <span style="font-size:8pt; text-transform:uppercase; letter-spacing:.09em; color:rgba(255,255,255,.7); font-weight:700;">In collaboration with</span>
+        <img src="img/utmspace-logo.webp" alt="UTM SPACE" style="height:30pt; background:#fff; border-radius:6pt; padding:5pt 9pt;">
+      </div>
+
+      <div style="display:flex; gap:10pt; margin-top:16pt; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:7pt; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:9pt; padding:6pt 9pt;">
+          <span style="background:#fff; border-radius:5pt; padding:4pt 6pt; display:grid; place-items:center;"><img src="img/mqa-logo-t.png" style="height:20pt;"></span>
+          <span style="font-size:8pt; font-weight:700; color:#fff; line-height:1.2;">MQA<br>Accredited</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:7pt; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:9pt; padding:6pt 9pt;">
+          <span style="background:#fff; border-radius:5pt; padding:4pt 6pt; display:grid; place-items:center;"><img src="img/leb-logo-t.png" style="height:20pt;"></span>
+          <span style="font-size:8pt; font-weight:700; color:#fff; line-height:1.2;">London Exam.<br>Board (UK)</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:7pt; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:9pt; padding:6pt 9pt;">
+          <span style="background:linear-gradient(135deg,var(--teal-700),var(--teal-900)); color:var(--gold-500); border-radius:5pt; width:28pt; height:28pt; display:grid; place-items:center; font-size:13pt;">✦</span>
+          <span style="font-size:8pt; font-weight:700; color:#fff; line-height:1.2;">LOYLA<br>UK Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.18); padding-top:12pt;">
+      <span style="font-size:9.5pt; color:var(--gold-500); font-weight:700;">2027 Intake · Full-Time &amp; Part-Time</span>
+      <span style="font-size:9.5pt; color:rgba(255,255,255,.9); font-weight:600;">caliphacademy.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 2 · PROGRAMME & RECOGNITION ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">The Programme</span></div>
+
+    <span class="eyebrow">About the Programme</span>
+    <h2 class="stitle">Business administration, grounded in Shariah</h2>
+    <p class="lead">The Islamic finance and Muamalat sectors — spanning Islamic insurance and Shariah-compliant commercial dealings — are among the fastest-growing areas of global finance. This Double Diploma prepares you to work in them with confidence, combining core business administration with authentic Islamic jurisprudence, and awards you <b>two recognised qualifications</b> from one integrated curriculum.</p>
+
+    <span class="eyebrow" style="margin-top:14pt;">Recognised Three Ways</span>
+    <div class="grid3" style="margin-top:4pt;">
+      <div class="mini">
+        <span style="display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:7pt;height:34pt;margin-bottom:6pt;"><img src="img/mqa-logo-t.png" style="height:22pt;"></span>
+        <h3>MQA (Malaysia)</h3>
+        <p>Accredited under the Malaysian Qualifications Framework. <b>MQA/PA18855</b>.</p>
+      </div>
+      <div class="mini">
+        <span style="display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:7pt;height:34pt;margin-bottom:6pt;"><img src="img/leb-logo-t.png" style="height:22pt;"></span>
+        <h3>London Exam. Board (UK)</h3>
+        <p>A parallel UK-benchmarked award for international standing.</p>
+      </div>
+      <div class="mini">
+        <span style="display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:7pt;height:34pt;margin-bottom:6pt;"><img src="img/utmspace-logo.webp" style="height:20pt;"></span>
+        <h3>UTM SPACE</h3>
+        <p>Delivered with UTM SPACE — you study as a <b>UTM student</b>.</p>
+      </div>
+    </div>
+
+    <div class="mini" style="margin-top:12pt; background:var(--soft); border-color:var(--teal-500);">
+      <span class="eyebrow">In collaboration with UTM SPACE</span>
+      <p style="font-size:9pt; margin-top:2pt;">Caliph Academy (Caliph Life Sdn Bhd) is the appointed <b>Centre of Education (COE)</b> delivering this programme with <b>UTM SPACE</b>, the School of Professional and Continuing Education of <b>Universiti Teknologi Malaysia (UTM)</b>. Students enrol and graduate as registered UTM SPACE students and study on campus at <b>UTM Kuala Lumpur (Semarak)</b>.</p>
+    </div>
+
+    <span class="eyebrow" style="margin-top:14pt;">Three Pillars of Knowledge</span>
+    <div class="grid3" style="margin-top:4pt;">
+      <div class="pillar p1"><h3>🕌 Shariah Foundations</h3><p>Aqidah, Fiqh Muamalat, Usul Fiqh, Qawaid Fiqhiyyah, Islamic Economics.</p><span class="fig">9 <small>courses · 27 cr</small></span></div>
+      <div class="pillar p2"><h3>📊 Islamic Finance &amp; Business</h3><p>Insurance, reinsurance, risk, accounting, marketing, investment.</p><span class="fig">14 <small>courses · 53 cr</small></span></div>
+      <div class="pillar p3"><h3>🎓 Professional &amp; MPU</h3><p>Ethics &amp; civilisation, integrity, English, co-curriculum.</p><span class="fig">4 <small>courses · 10 cr</small></span></div>
+    </div>
+
+    <ul class="checks" style="margin-top:12pt;">
+      <li>27 courses across Shariah, business and professional skills · <b>90 credits</b></li>
+      <li>Full-time (2 years) or part-time (4 years) study modes</li>
+      <li>A dedicated industrial training placement before you graduate</li>
+    </ul>
+
+    <div class="rfoot"><span>Caliph Academy · Double Diploma in Business Administration (Muamalat)</span><span><b>caliphacademy.com</b></span></div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 3 · CURRICULUM ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">Curriculum</span></div>
+
+    <span class="eyebrow">Programme Structure · Full-Time</span>
+    <h2 class="stitle">27 courses · 90 credits · 6 semesters</h2>
+    <div class="cur-legend">
+      <span><span class="dot cc"></span> Common Core</span>
+      <span><span class="dot dc"></span> Discipline Core</span>
+      <span><span class="dot co"></span> Compulsory (MPU)</span>
+    </div>
+
+    <div class="cur-grid">
+      <div class="cur-sem">
+        <div class="sh"><b>Year 1 · Semester 1</b><span>19 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot cc"></span>Financial Literacy</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Principles of Takaful</span><b>4</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Basic Arabic for Muamalat</span><b>3</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Aqidah Islamiyyah</span><b>3</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Qawaid Fiqhiyyah</span><b>3</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Fiqh Muamalat</span><b>3</b></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh"><b>Year 1 · Semester 2</b><span>20 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot cc"></span>Usul Fiqh</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Principles of Accounting</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Application of Qawaid Fiqhiyyah for Takaful Practices</span><b>4</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Islamic Economics</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Family Takaful Business &amp; Operation</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>General Takaful</span><b>3</b></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh"><b>Year 1 · Semester 3</b><span>10 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot co"></span>Penghayatan Etika dan Peradaban (MPU)</span><b>3</b></li>
+          <li><span class="cn"><span class="dot co"></span>Integriti dan Anti Rasuah / KIAR (MPU)</span><b>3</b></li>
+          <li><span class="cn"><span class="dot co"></span>English for Professional Communication (MPU)</span><b>2</b></li>
+          <li><span class="cn"><span class="dot co"></span>Co-Curriculum (MPU)</span><b>2</b></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh"><b>Year 2 · Semester 1</b><span>17 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot cc"></span>Investment From Islamic Perspective</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Mathematics in Takaful</span><b>3</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Accounting &amp; Reporting for Takaful Business</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Risk Management</span><b>4</b></li>
+          <li><span class="cn"><span class="dot cc"></span>Akhlaq dan Tasawwuf</span><b>3</b></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh"><b>Year 2 · Semester 2</b><span>19 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot dc"></span>Principles &amp; Practices of Retakaful</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Marketing for Takaful Products &amp; Services</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Islamic Entrepreneurship</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Innovation in Takaful Industry</span><b>4</b></li>
+          <li><span class="cn"><span class="dot dc"></span>Technologies for Takaful Industry</span><b>3</b></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh"><b>Year 2 · Semester 3</b><span>5 CREDITS</span></div>
+        <ul>
+          <li><span class="cn"><span class="dot dc"></span>Industrial Training (10 weeks)</span><b>5</b></li>
+        </ul>
+        <div style="padding:6pt 8pt 8pt;">
+          <div style="background:var(--soft); border:1px solid var(--line); border-radius:7pt; padding:6pt 8pt; font-size:7.6pt;">Also available <b>part-time over 4 years</b> (11 semesters) — the same 27 courses and dual-diploma outcome, ideal for working professionals.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rfoot"><span>Curriculum 2027 · Takaful &amp; Muamalat · courses as accredited by MQA</span><span><b>caliphacademy.com</b></span></div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 4 · LOYLA ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">LOYLA</span></div>
+
+    <span class="eyebrow">✦ A Main Highlight of the Double Diploma</span>
+    <h2 class="stitle">LOYLA — London Youth Leadership Award</h2>
+    <p class="lead"><em>Leadership, London and Unforgettable Learning.</em> LOYLA carries you from leadership workshops in Malaysia to a viva at the <b>University of Oxford</b> and a convocation in <b>London</b> — the unforgettable international chapter of your diploma, delivered with UTM SPACE.</p>
+
+    <div class="grid2" style="grid-template-columns:repeat(4,1fr); margin-top:10pt;">
+      <div class="mini"><div class="ic">🎓</div><h3 style="font-size:9.5pt;">Oxford Viva</h3><p>Present &amp; defend your work at the University of Oxford.</p></div>
+      <div class="mini"><div class="ic">🏛️</div><h3 style="font-size:9.5pt;">London Convocation</h3><p>A mini convocation &amp; ceremony in London.</p></div>
+      <div class="mini"><div class="ic">💡</div><h3 style="font-size:9.5pt;">Leadership Labs</h3><p>Seminars &amp; creative workshops that build real capability.</p></div>
+      <div class="mini"><div class="ic">🌍</div><h3 style="font-size:9.5pt;">Cultural Immersion</h3><p>London landmarks — plus Liverpool &amp; Manchester (Bravo).</p></div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:16pt;">The Journey, Day by Day</span>
+    <div class="cur-sem" style="margin-top:4pt;">
+      <div class="sh" style="background:linear-gradient(120deg,var(--teal-600),var(--teal-800));"><b>Phase 1 · In Malaysia</b><span>2 WEEKENDS</span></div>
+      <ul>
+        <li><span class="cn">Days 1–4 · Pre-departure briefing &amp; LOYLA leadership workshops</span></li>
+      </ul>
+    </div>
+    <div class="cur-grid" style="margin-top:8pt;">
+      <div class="cur-sem">
+        <div class="sh"><b>Alpha Company</b><span>7D / 4N</span></div>
+        <ul style="font-size:7.4pt;">
+          <li><span class="cn">D1 · Depart KLIA</span></li>
+          <li><span class="cn">D2 · Heathrow → Oxford</span></li>
+          <li><span class="cn">D3 · LOYLA viva, University of Oxford</span></li>
+          <li><span class="cn">D4 · Transfer to London</span></li>
+          <li><span class="cn">D5 · Mini convocation</span></li>
+          <li><span class="cn">D6 · Farewell picnic, Univ. of London → Heathrow</span></li>
+          <li><span class="cn">D7 · Arrive KLIA</span></li>
+        </ul>
+      </div>
+      <div class="cur-sem">
+        <div class="sh" style="background:linear-gradient(120deg,var(--gold-500),var(--gold-600));"><b style="color:var(--teal-900);">Bravo Company</b><span style="color:var(--teal-900);">10D / 7N</span></div>
+        <ul style="font-size:7.4pt;">
+          <li><span class="cn">D1 · Depart KLIA</span></li>
+          <li><span class="cn">D2 · Heathrow → Oxford</span></li>
+          <li><span class="cn">D3 · LOYLA viva, University of Oxford</span></li>
+          <li><span class="cn">D4 · Transfer to London</span></li>
+          <li><span class="cn">D5 · Mini convocation</span></li>
+          <li><span class="cn">D6 · Farewell picnic → Liverpool</span></li>
+          <li><span class="cn">D7 · Liverpool → Manchester</span></li>
+          <li><span class="cn">D8 · Manchester · D9 · → Heathrow · D10 · Arrive KLIA</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rfoot"><span>LOYLA — an unforgettable chapter of the Caliph Academy Double Diploma</span><span><b>caliphacademy.com</b></span></div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 5 · CAREERS & FURTHER STUDY ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">Careers &amp; Further Study</span></div>
+
+    <span class="eyebrow">Your Pathway</span>
+    <h2 class="stitle">Two doors open after graduation</h2>
+    <p class="lead">Your diploma is both a professional qualification and a bridge to higher study — start your career, continue to a degree, or do both.</p>
+
+    <div class="grid2" style="margin-top:10pt; align-items:start;">
+      <div class="mini">
+        <h3>💼 Path A · Start Your Career</h3>
+        <ul class="checks" style="margin-top:4pt;">
+          <li>Islamic Finance Executive</li>
+          <li>Islamic Banking &amp; Finance Officer</li>
+          <li>Operations &amp; Claims Officer</li>
+          <li>Risk &amp; Compliance Assistant</li>
+          <li>Marketing &amp; Business Development</li>
+          <li>Wealth &amp; Investment Support</li>
+          <li>Shariah Advisory / Audit Support</li>
+          <li>Islamic Fintech &amp; Digital Finance</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3>🎓 Path B · Further Your Studies</h3>
+        <div style="margin-top:5pt;">
+          <div class="stepn"><b>1</b><div><b2 style="font-weight:700;color:var(--ink)">Bachelor's Degree</b2> — transfer credits, often <b>Year 2/3 entry</b>.</div></div>
+          <div class="stepn"><b>2</b><div><b2 style="font-weight:700;color:var(--ink)">Graduate (Hons)</b2> — Islamic finance, business, accounting or Muamalat.</div></div>
+          <div class="stepn"><b>3</b><div><b2 style="font-weight:700;color:var(--ink)">Senior &amp; professional roles</b2> — or a Master's / certification.</div></div>
+        </div>
+        <div style="background:var(--soft); border:1px solid var(--line); border-radius:7pt; padding:6pt 8pt; font-size:7.8pt; margin-top:6pt;">✦ Dual MQA &amp; UK recognition supports articulation into degrees <b>in Malaysia and abroad</b>.</div>
+      </div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:14pt;">Where You Could Work</span>
+    <div class="grid3" style="margin-top:4pt;">
+      <div class="mini"><h3 style="font-size:9.5pt;">🏦 Islamic Banks</h3><p>Retail &amp; corporate banking, financing, advisory.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🛡️ Islamic Insurers</h3><p>Family &amp; general coverage, underwriting, claims.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">📈 Investment &amp; Wealth</h3><p>Shariah-compliant funds &amp; capital markets.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">⚖️ Shariah Advisory</h3><p>Advisory, audit &amp; compliance firms.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">💳 Islamic Fintech</h3><p>Digital finance &amp; Shariah-compliant tech.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🏛️ Regulators &amp; Co-ops</h3><p>Government bodies &amp; cooperatives.</p></div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:14pt;">Built to be Hired</span>
+    <div class="grid3" style="margin-top:4pt;">
+      <div class="mini"><h3 style="font-size:9.5pt;">🕌 Shariah-Literate</h3><p>A rare blend of fiqh &amp; business skills employers seek.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🤝 Industry Training</h3><p>Real placement — experience &amp; networks before you graduate.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🌍 Globally Recognised</h3><p>MQA + UK recognition signals quality worldwide.</p></div>
+    </div>
+
+    <div class="rfoot"><span>Careers across Malaysia's Islamic finance ecosystem — and pathways abroad</span><span><b>caliphacademy.com</b></span></div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 4 · FEES, ADMISSIONS & CONTACT ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">Fees &amp; Admissions</span></div>
+
+    <span class="eyebrow">Programme Fees</span>
+    <h2 class="stitle">One fee, three qualifications</h2>
+    <div class="grid2">
+      <div class="fee">
+        <div class="fh"><h3>Local Students</h3><span style="font-size:7.5pt; opacity:.85;">DDHM · Local</span></div>
+        <div class="fb"><div class="price">RM 37,821</div><div style="font-size:7.5pt; color:var(--muted);">Total programme fee</div>
+          <ul class="inc"><li>Diploma in Business Administration (MQA)</li><li>LEB Advanced Diploma (UK)</li><li>LOYLA — London Youth Leadership Award</li></ul>
+        </div>
+      </div>
+      <div class="fee intl">
+        <div class="fh"><h3>International Students</h3><span style="font-size:7.5pt; opacity:.85;">DDHM · International</span></div>
+        <div class="fb"><div class="price">RM 52,521</div><div style="font-size:7.5pt; color:var(--muted);">Total programme fee</div>
+          <ul class="inc"><li>Diploma in Business Administration (MQA)</li><li>LEB Advanced Diploma (UK)</li><li>LOYLA — London Youth Leadership Award</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="mini" style="margin-top:8pt; background:var(--soft); display:flex; gap:14pt;">
+      <span style="font-size:8.5pt;"><b>🎓 PTPTN Financing</b> — national higher-education loan.</span>
+      <span style="font-size:8.5pt;"><b>💰 KWSP (EPF) Withdrawal</b> — education withdrawal.</span>
+      <span style="font-size:7.5pt; color:var(--muted); align-self:center;">Subject to approval · fees indicative</span>
+    </div>
+
+    <div class="grid2" style="margin-top:14pt; align-items:start;">
+      <div>
+        <span class="eyebrow">Entry Requirements</span>
+        <ul class="checks">
+          <li>SPM with at least <b>3 credits</b> (or equivalent)</li>
+          <li>A relevant Certificate (Level 3, MQF) via credit transfer</li>
+          <li>Pass in Bahasa Melayu &amp; a credit/pass in English (SPM)</li>
+          <li>Working adults may qualify through <b>APEL</b></li>
+        </ul>
+      </div>
+      <div>
+        <span class="eyebrow">How to Apply</span>
+        <div style="margin-top:4pt;">
+          <div class="stepn"><b>1</b><div><b2 style="font-weight:700;color:var(--ink)">Submit your enquiry</b2> — register interest &amp; choose your study mode.</div></div>
+          <div class="stepn"><b>2</b><div><b2 style="font-weight:700;color:var(--ink)">Prepare documents</b2> — results, ID, passport photo.</div></div>
+          <div class="stepn"><b>3</b><div><b2 style="font-weight:700;color:var(--ink)">Complete application</b2> — we confirm eligibility &amp; intake.</div></div>
+          <div class="stepn"><b>4</b><div><b2 style="font-weight:700;color:var(--ink)">Enrol &amp; begin</b2> — start your Double Diploma.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:12pt;">Your Campus — UTM Kuala Lumpur (Semarak)</span>
+    <div class="grid3" style="margin-top:4pt;">
+      <div class="mini"><h3 style="font-size:9.5pt;">🏙️ City Campus</h3><p>Established UTM KL campus on Jalan Semarak, minutes from the city centre.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🏠 On-Campus Hostels</h3><p>Residential colleges housing up to 3,000 students.</p></div>
+      <div class="mini"><h3 style="font-size:9.5pt;">🍽️ Full Facilities</h3><p>Cafeterias, sports, libraries, laundry &amp; leisure spaces.</p></div>
+    </div>
+
+    <!-- contact footer -->
+    <div style="margin-top:auto; border-radius:12pt; overflow:hidden; background:linear-gradient(150deg,var(--teal-800),var(--teal-900)); color:#fff; position:relative;">
+      <div style="position:absolute; inset:0; background:url(img/pattern-gold.svg); background-size:64pt; opacity:.08;"></div>
+      <div style="position:relative; padding:13pt 15pt; display:flex; justify-content:space-between; align-items:center; gap:14pt;">
+        <div>
+          <img src="img/logo-footer.png" style="height:34pt; margin-bottom:6pt;"><br>
+          <span style="font-size:9pt; color:rgba(255,255,255,.9);">📧 info@caliphgroup.com &nbsp;·&nbsp; 📞 +60 3-0000 0000</span><br>
+          <span style="font-size:11pt; color:var(--gold-500); font-weight:700;">caliphacademy.com &nbsp;·&nbsp; Apply for 2027 Intake</span>
+        </div>
+        <div style="text-align:right;">
+          <div style="display:flex; gap:6pt; justify-content:flex-end; align-items:center;">
+            <span style="background:#fff; border-radius:5pt; padding:4pt 6pt;"><img src="img/mqa-logo-t.png" style="height:18pt;"></span>
+            <span style="background:#fff; border-radius:5pt; padding:4pt 6pt;"><img src="img/leb-logo-t.png" style="height:18pt;"></span>
+            <span style="background:#fff; border-radius:5pt; padding:4pt 6pt;"><img src="img/utmspace-logo.webp" style="height:16pt;"></span>
+          </div>
+          <div style="font-size:7pt; color:rgba(255,255,255,.7); margin-top:6pt;">MQA Approval: <b style="color:var(--gold-500);">MQA/PA18855</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
