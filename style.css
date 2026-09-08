@@ -857,3 +857,9 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
   .sem-head .courses-n { order: 3; }
   .sem-head .cr { order: 4; margin-left: auto; }
 }
+
+/* UTM SPACE logo card + footer collaboration */
+.logo-card { display: grid; place-items: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 2.6rem 2rem; min-height: 340px; }
+.logo-card img { max-width: 100%; width: 440px; height: auto; }
+.footer-utm { margin-top: 1.1rem; font-size: .72rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .06em; }
+.footer-utm img { display: block; height: 46px; width: auto; margin-top: .55rem; background: #fff; border-radius: 8px; padding: 6px 10px; }
