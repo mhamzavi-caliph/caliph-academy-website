@@ -868,3 +868,26 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 .hero-collab { display: flex; align-items: center; gap: .85rem; margin-top: 1.7rem; flex-wrap: wrap; }
 .hero-collab span { font-size: .74rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.68); }
 .hero-collab img { height: 34px; width: auto; background: #fff; border-radius: 8px; padding: 5px 11px; box-shadow: 0 6px 16px rgba(0,0,0,.16); }
+
+/* ==========================================================================
+   FEE SCHEDULE — mobile improvements (sticky first column + swipe hint)
+   ========================================================================== */
+/* Pin the fee-name column so labels stay visible while swiping semesters */
+.fee-table th:first-child, .fee-table td:first-child { position: sticky; left: 0; }
+.fee-table thead th:first-child { z-index: 3; }
+.fee-table tbody td:first-child { z-index: 1; background: #fff; box-shadow: 1px 0 0 var(--line); }
+.fee-table tbody tr.row-total td:first-child { background: var(--bg-soft); }
+.fee-table tbody tr.row-balance td:first-child { background: #eef5f4; }
+.fee-table-wrap { position: relative; }
+
+@media (max-width: 720px) {
+  .fee-sched-title { flex-wrap: wrap; }
+  .fee-sched-title::after {
+    content: "swipe →"; margin-left: auto; font-family: var(--font); font-size: .66rem;
+    font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--gold-600);
+    background: var(--gold-100); padding: .22rem .6rem; border-radius: 999px; align-self: center;
+  }
+  table.fee-table { font-size: .82rem; min-width: 600px; }
+  .fee-table th, .fee-table td { padding: .58rem .7rem; }
+  .fee-table thead th { font-size: .68rem; }
+}
