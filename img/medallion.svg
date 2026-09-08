@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <g stroke="#f5b937" stroke-width="1.5">
+    <circle cx="120" cy="120" r="112" opacity=".5"/>
+    <circle cx="120" cy="120" r="104" opacity=".8"/>
+    <!-- outer 8-point star -->
+    <polygon points="120,14 226,120 120,226 14,120" opacity=".9"/>
+    <polygon points="49.3,49.3 190.7,49.3 190.7,190.7 49.3,190.7" opacity=".9"/>
+    <circle cx="120" cy="120" r="66"/>
+    <!-- inner 8-point star -->
+    <polygon points="120,62 178,120 120,178 62,120"/>
+    <polygon points="79,79 161,79 161,161 79,161"/>
+    <circle cx="120" cy="120" r="26" opacity=".9"/>
+    <!-- centre rosette -->
+    <polygon points="120,100 140,120 120,140 100,120"/>
+    <circle cx="120" cy="120" r="6" fill="#f5b937" stroke="none"/>
+  </g>
+  <!-- tip dots -->
+  <g fill="#f5b937">
+    <circle cx="120" cy="14" r="3"/><circle cx="226" cy="120" r="3"/>
+    <circle cx="120" cy="226" r="3"/><circle cx="14" cy="120" r="3"/>
+    <circle cx="49.3" cy="49.3" r="2.6"/><circle cx="190.7" cy="49.3" r="2.6"/>
+    <circle cx="190.7" cy="190.7" r="2.6"/><circle cx="49.3" cy="190.7" r="2.6"/>
+  </g>
+</svg>
