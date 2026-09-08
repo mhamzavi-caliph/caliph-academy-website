@@ -891,3 +891,8 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
   .fee-table th, .fee-table td { padding: .58rem .7rem; }
   .fee-table thead th { font-size: .68rem; }
 }
+
+/* ---- Blog (Soro embed) ---- */
+.blog-embed{min-height:420px}
+.blog-loading{text-align:center;color:var(--teal-700,#0d3b3c);opacity:.6;padding:3rem 0;font-style:italic}
+.blog-embed a{color:var(--gold,#c68a17)}
