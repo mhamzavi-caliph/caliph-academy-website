@@ -141,4 +141,43 @@
     // show thank-you if Netlify redirected back after a no-JS submit
     if (/[?&]sent=1/.test(location.search)) showSuccess();
   }
+
+  // Visitor counter (abacus.jasoncameron.dev) — increments once per browser/day
+  var vcEl = document.getElementById('visitor-count');
+  if (vcEl) {
+    var VC_NS = 'caliphacademy', VC_KEY = 'site-visits';
+    var wrap = document.querySelector('.footer-visitors');
+    var dayKey = 'ca_visit_' + new Date().toISOString().slice(0, 10);
+    var alreadyCounted = false;
+    try { alreadyCounted = localStorage.getItem(dayKey) === '1'; } catch (e) {}
+    var base = 'https://abacus.jasoncameron.dev/';
+    var url = base + (alreadyCounted ? 'get/' : 'hit/') + VC_NS + '/' + VC_KEY;
+
+    var animateVisitor = function (el, target) {
+      var dur = 1600, start = null;
+      var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+      function tick(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = fmt(target);
+      }
+      requestAnimationFrame(tick);
+    };
+
+    fetch(url)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        var val = d && typeof d.value === 'number' ? d.value : null;
+        if (val === null) return;
+        if (!alreadyCounted) { try { localStorage.setItem(dayKey, '1'); } catch (e) {} }
+        animateVisitor(vcEl, val);
+        var lbl = document.querySelector('.fv-label');
+        if (lbl) lbl.textContent = val === 1 ? 'visitor' : 'visitors';
+        if (wrap) wrap.hidden = false;
+      })
+      .catch(function () { /* service down — leave the line hidden */ });
+  }
 })();
