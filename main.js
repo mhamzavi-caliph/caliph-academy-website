@@ -178,4 +178,74 @@
       })
       .catch(function () { /* service down — leave the line hidden */ });
   }
+
+  // Curriculum: click a course to expand a brief description
+  var courseCells = document.querySelectorAll('table.courses td.course-name');
+  if (courseCells.length) {
+    var COURSE_DESC = {
+      'financial literacy': 'Foundations of personal and business finance — budgeting, saving, credit and sound financial decision-making from a Shariah-conscious perspective.',
+      'principles of takaful': 'The core concepts of Takaful (Islamic insurance): its Shariah basis, key contracts (tabarru’, wakalah, mudarabah) and how it differs from conventional insurance.',
+      'basic arabic for muamalat': 'Essential Arabic vocabulary and terminology used in Islamic commercial and finance texts, giving you access to primary Muamalat sources.',
+      'aqidah islamiyyah': 'Islamic creed and belief — the fundamentals of faith that ground a Muslim professional’s worldview and ethics.',
+      'qawaid fiqhiyyah': 'The major legal maxims of Islamic jurisprudence and how these guiding principles apply to real financial and commercial cases.',
+      'fiqh muamalat': 'Islamic commercial jurisprudence — the rules governing trade, contracts, partnerships and permissible (halal) business dealings.',
+      'usul fiqh': 'The principles and methodology of deriving Islamic rulings from the Qur’an, Sunnah and other sources — the science behind fiqh.',
+      'principles of accounting': 'Fundamentals of financial accounting — recording transactions, the accounting cycle and preparing basic financial statements.',
+      'application of qawaid fiqhiyyah for takaful practices': 'Applying Islamic legal maxims directly to Takaful operations, product structuring and day-to-day industry practice.',
+      'islamic economics': 'Economic theory through an Islamic lens — the principles, values and systems that shape a Shariah-based economy.',
+      'family takaful business and operation': 'How family (life) Takaful products are designed, underwritten and managed, including savings and protection plans.',
+      'general takaful': 'The operation of general Takaful — protection for property, motor and liability risks under Shariah-compliant contracts.',
+      'penghayatan etika dan peradaban': 'A national MPU course on ethics and civilisation, fostering integrity, shared values and appreciation of a diverse society.',
+      'kursus integriti dan anti rasuah / kiar': 'A national MPU course on integrity and anti-corruption — recognising, preventing and rejecting corrupt practices.',
+      'english for professional communication': 'Building the written and spoken English skills needed for confident professional and workplace communication.',
+      'co-curriculum': 'Co-curricular activities that develop teamwork, leadership and soft skills alongside your academic study.',
+      'investment from islamic perspective': 'Principles of Shariah-compliant investing — screening, instruments such as sukuk and equities, and avoiding riba and gharar.',
+      'mathematics in takaful': 'The quantitative and actuarial foundations used in Takaful — probability, contributions and fund calculations.',
+      'accounting and reporting for takaful business': 'Specialised accounting and financial reporting standards for Takaful operators and their participant funds.',
+      'risk management': 'Identifying, assessing and managing risk in financial institutions, with emphasis on Takaful and Islamic finance.',
+      'akhlaq dan tasawwuf': 'Islamic ethics and spirituality — cultivating good character and inner discipline for personal and professional life.',
+      'islamic entrepreneurship': 'Launching and running ventures on Islamic principles — opportunity, innovation and ethical, halal enterprise.',
+      'marketing for takaful products and services': 'Marketing strategy and customer engagement tailored to Takaful products and Islamic financial services.',
+      'principles and practices of retakaful': 'How Takaful operators share and cede risk through Retakaful (Islamic reinsurance) arrangements.',
+      'technologies for takaful industry': 'Emerging technologies transforming Takaful — digital platforms, insurtech and data-driven operations.',
+      'innovation in takaful industry': 'Trends, product innovation and future directions shaping the growth of the Takaful sector.',
+      'industrial training': 'A supervised industry placement that applies your classroom learning in a real Takaful or Islamic finance workplace.'
+    };
+    var normCourse = function (s) {
+      return s.toLowerCase().replace(/\s*\(mpu[^)]*\)/, '').replace(/\s+/g, ' ').trim();
+    };
+    courseCells.forEach(function (td) {
+      var tr = td.parentNode;
+      var desc = COURSE_DESC[normCourse(td.textContent)];
+      if (!desc || tr.classList.contains('has-desc')) return;
+      tr.classList.add('has-desc');
+      tr.setAttribute('tabindex', '0');
+      tr.setAttribute('role', 'button');
+      tr.setAttribute('aria-expanded', 'false');
+      var caret = document.createElement('span');
+      caret.className = 'course-caret';
+      caret.setAttribute('aria-hidden', 'true');
+      caret.textContent = '›';
+      td.insertBefore(caret, td.firstChild);
+      var dr = document.createElement('tr');
+      dr.className = 'course-desc';
+      var cell = document.createElement('td');
+      cell.colSpan = 3;
+      var inner = document.createElement('div');
+      inner.className = 'course-desc-inner';
+      inner.textContent = desc;
+      cell.appendChild(inner);
+      dr.appendChild(cell);
+      tr.parentNode.insertBefore(dr, tr.nextSibling);
+      var toggle = function () {
+        var open = tr.classList.toggle('open');
+        dr.classList.toggle('open', open);
+        tr.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      tr.addEventListener('click', toggle);
+      tr.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+  }
 })();

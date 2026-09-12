@@ -990,3 +990,23 @@ a.badge-chip:focus-visible{outline:2px solid var(--gold,#f5b937);outline-offset:
   color:var(--gold-500); font-weight:700; font-variant-numeric:tabular-nums;
   font-size:1.02rem; letter-spacing:.03em;
 }
+
+/* ---- Curriculum: expandable course descriptions ---- */
+table.courses tr.has-desc{ cursor:pointer; transition:background .18s ease; }
+table.courses tr.has-desc:hover{ background:rgba(245,185,55,.07); }
+table.courses tr.has-desc:focus-visible{ outline:2px solid var(--gold-500); outline-offset:-2px; }
+.course-caret{
+  display:inline-block; margin-right:.6rem; color:var(--gold-600);
+  font-weight:700; transform:rotate(0); transition:transform .25s ease;
+}
+table.courses tr.has-desc.open .course-caret{ transform:rotate(90deg); }
+tr.course-desc{ display:none; }
+tr.course-desc.open{ display:table-row; }
+tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var(--bg-soft); }
+.course-desc-inner{
+  padding:.85rem 1.2rem .95rem 2.4rem; margin:0 0 .2rem;
+  color:var(--body); font-size:.93rem; line-height:1.6;
+  border-left:3px solid var(--gold-500);
+  animation:courseFade .28s ease;
+}
+@keyframes courseFade{ from{ opacity:0; transform:translateY(-4px);} to{ opacity:1; transform:translateY(0);} }
