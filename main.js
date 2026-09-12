@@ -134,8 +134,8 @@
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
         .then(function (r) { if (!r.ok) throw new Error('bad status'); showSuccess(); })
         .catch(function () {
-          if (btn) { btn.disabled = false; btn.textContent = 'Send Enquiry'; }
-          alert('Sorry, we could not send your enquiry just now. Please email info@caliphgroup.com and we will get back to you.');
+          if (btn) { btn.disabled = false; btn.textContent = 'Book My Tour'; }
+          alert('Sorry, we could not send your request just now. Please email info@caliphgroup.com and we will get back to you.');
         });
     });
     // show thank-you if Netlify redirected back after a no-JS submit
