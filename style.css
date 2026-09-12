@@ -1010,3 +1010,38 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
   animation:courseFade .28s ease;
 }
 @keyframes courseFade{ from{ opacity:0; transform:translateY(-4px);} to{ opacity:1; transform:translateY(0);} }
+
+/* ---- Study in the UK photos ---- */
+.uk-photo{ border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-md); }
+.uk-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.uk-gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+.uk-gallery figure{ margin:0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); }
+.uk-gallery img{ width:100%; display:block; }
+.uk-credit{ text-align:center; color:var(--muted); font-size:.82rem; margin-top:1.4rem; }
+@media (max-width:720px){ .uk-gallery{ grid-template-columns:1fr; } }
+
+/* ---- Nav dropdown (Curriculum → The Programme) ---- */
+.nav-links .has-sub{ position:relative; }
+.nav-links .nav-caret{ font-size:.62em; margin-left:.28rem; vertical-align:middle; }
+.nav-links .subnav{
+  position:absolute; top:100%; left:-.6rem; min-width:210px;
+  background:#fff; border:1px solid var(--line); border-radius:12px;
+  box-shadow:var(--shadow-md); padding:.45rem; margin:0; list-style:none;
+  opacity:0; visibility:hidden; transform:translateY(6px);
+  transition:opacity .18s ease, transform .18s ease; z-index:60;
+}
+.nav-links .has-sub:hover > .subnav,
+.nav-links .has-sub:focus-within > .subnav{ opacity:1; visibility:visible; transform:translateY(0); }
+.nav-links .subnav li{ width:auto; }
+.nav-links .subnav a{ padding:.55rem .8rem; border-radius:8px; font-size:.92rem; white-space:nowrap; color:var(--ink); }
+.nav-links .subnav a::after{ display:none; }
+.nav-links .subnav a:hover, .nav-links .subnav a.active{ background:var(--bg-soft); color:var(--teal-800); }
+
+@media (max-width:720px){
+  .nav-links .subnav{
+    position:static; opacity:1; visibility:visible; transform:none;
+    box-shadow:none; border:0; border-radius:0; padding:.2rem 0 .4rem 1rem; min-width:0; background:transparent;
+  }
+  .nav-links .subnav a{ padding:.7rem 0; border-bottom:1px solid var(--line); font-size:.95rem; }
+  .nav-links .nav-caret{ display:none; }
+}
