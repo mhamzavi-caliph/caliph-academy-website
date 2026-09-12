@@ -8,7 +8,8 @@ export default async (req) => {
   const KEY = 'site-visits';
   const hit = new URL(req.url).searchParams.get('hit') === '1';
 
-  let n = parseInt((await store.get(KEY)) || '0', 10);
+  // strong consistency so each increment reads the freshest value first
+  let n = parseInt((await store.get(KEY, { consistency: 'strong' })) || '0', 10);
   if (!Number.isFinite(n)) n = 0;
 
   if (hit) {
