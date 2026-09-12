@@ -142,16 +142,14 @@
     if (/[?&]sent=1/.test(location.search)) showSuccess();
   }
 
-  // Visitor counter (abacus.jasoncameron.dev) — increments once per browser/day
+  // Visitor counter (self-hosted Netlify Function + Blobs) — increments once per browser/day
   var vcEl = document.getElementById('visitor-count');
   if (vcEl) {
-    var VC_NS = 'caliphacademy', VC_KEY = 'site-visits';
     var wrap = document.querySelector('.footer-visitors');
     var dayKey = 'ca_visit_' + new Date().toISOString().slice(0, 10);
     var alreadyCounted = false;
     try { alreadyCounted = localStorage.getItem(dayKey) === '1'; } catch (e) {}
-    var base = 'https://abacus.jasoncameron.dev/';
-    var url = base + (alreadyCounted ? 'get/' : 'hit/') + VC_NS + '/' + VC_KEY;
+    var url = '/api/visits' + (alreadyCounted ? '' : '?hit=1');
 
     var animateVisitor = function (el, target) {
       var dur = 1600, start = null;

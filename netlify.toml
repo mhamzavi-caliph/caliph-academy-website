@@ -1,6 +1,16 @@
-# Netlify config — static site, no build step
+# Netlify config — static site + serverless visitor counter
 [build]
   publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Friendly URL for the counter function
+[[redirects]]
+  from = "/api/visits"
+  to = "/.netlify/functions/visits"
+  status = 200
 
 # Nice-to-have security headers
 [[headers]]

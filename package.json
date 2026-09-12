@@ -1,0 +1,9 @@
+{
+  "name": "caliph-academy-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Caliph Academy — Double Diploma website (static) with a Netlify Functions visitor counter.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
