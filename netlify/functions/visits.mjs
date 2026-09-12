@@ -6,7 +6,16 @@ import { getStore } from '@netlify/blobs';
 export default async (req) => {
   const store = getStore('counter');
   const KEY = 'site-visits';
-  const hit = new URL(req.url).searchParams.get('hit') === '1';
+  const params = new URL(req.url).searchParams;
+  const hit = params.get('hit') === '1';
+
+  // one-time reset (temporary, removed after launch baseline set)
+  if (params.get('reset') === 'd2afe89a25b154fe1ad022e8fcb96e92') {
+    await store.set(KEY, '0');
+    return new Response(JSON.stringify({ value: 0, reset: true }), {
+      headers: { 'content-type': 'application/json', 'cache-control': 'no-store' }
+    });
+  }
 
   // strong consistency so each increment reads the freshest value first
   let n = parseInt((await store.get(KEY, { consistency: 'strong' })) || '0', 10);
