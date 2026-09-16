@@ -1078,3 +1078,10 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
 /* ---- About brand intro video ---- */
 .about-video{ border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid rgba(245,185,55,.22); background:#0a2e2f; line-height:0; }
 .about-video video{ display:block; width:100%; height:auto; }
+
+/* ---- Homepage brand intro video ---- */
+.intro-video{ max-width:860px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid rgba(245,185,55,.22); background:#0a2e2f; line-height:0; }
+.intro-video video{ display:block; width:100%; height:auto; }
+
+/* ---- Footer tagline ---- */
+.footer-tagline{ color:var(--gold-500); font-family:var(--serif); font-style:italic; font-size:1.05rem; margin:.5rem 0 .1rem; }
