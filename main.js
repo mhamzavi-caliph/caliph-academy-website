@@ -179,6 +179,23 @@
       .catch(function () { /* service down — leave the line hidden */ });
   }
 
+  // Video unmute toggle (autoplay muted + tap for sound)
+  document.querySelectorAll('.vid-sound').forEach(function (btn) {
+    var vid = btn.parentNode.querySelector('video');
+    if (!vid) return;
+    btn.addEventListener('click', function () {
+      vid.muted = !vid.muted;
+      if (!vid.muted) { vid.play(); }
+      var on = !vid.muted;
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-label', on ? 'Mute video' : 'Unmute video');
+      var off = btn.querySelector('.vs-off'), onIco = btn.querySelector('.vs-on'), lbl = btn.querySelector('.vs-label');
+      if (off) off.hidden = on;
+      if (onIco) onIco.hidden = !on;
+      if (lbl) lbl.textContent = on ? 'Sound on' : 'Tap for sound';
+    });
+  });
+
   // Curriculum: click a course to expand a brief description
   var courseCells = document.querySelectorAll('table.courses td.course-name');
   if (courseCells.length) {

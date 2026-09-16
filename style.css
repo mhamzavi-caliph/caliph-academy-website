@@ -1085,3 +1085,10 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
 
 /* ---- Footer tagline ---- */
 .footer-tagline{ color:var(--gold-500); font-family:var(--serif); font-style:italic; font-size:1.05rem; margin:.5rem 0 .1rem; }
+
+/* ---- Video unmute button ---- */
+.intro-video, .about-video{ position:relative; }
+.vid-sound{ position:absolute; right:12px; bottom:12px; z-index:3; display:inline-flex; align-items:center; gap:.4rem; background:rgba(10,46,47,.72); color:#fff; border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:.4rem .75rem .4rem .55rem; font-family:var(--font); font-size:12px; font-weight:600; line-height:1; cursor:pointer; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); transition:background .2s ease, transform .2s ease; }
+.vid-sound:hover{ background:rgba(10,46,47,.92); transform:translateY(-1px); }
+.vid-sound.on{ background:var(--gold-500); color:var(--teal-900); border-color:transparent; }
+.vid-sound svg{ width:16px; height:16px; fill:currentColor; }
