@@ -179,6 +179,25 @@
       .catch(function () { /* service down — leave the line hidden */ });
   }
 
+  // Blog: live search filter (scales as posts grow; matches Soro card title/excerpt)
+  var blogSearch = document.getElementById('blog-search');
+  if (blogSearch) {
+    var noRes = document.getElementById('blog-noresult');
+    blogSearch.addEventListener('input', function () {
+      var q = blogSearch.value.trim().toLowerCase();
+      var cards = document.querySelectorAll('.soro-blog-card');
+      var shown = 0;
+      cards.forEach(function (c) {
+        var match = !q || c.textContent.toLowerCase().indexOf(q) !== -1;
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      var list = document.querySelector('.soro-blog-list');
+      if (list) list.classList.toggle('searching', !!q);
+      if (noRes) noRes.hidden = !(cards.length > 0 && shown === 0);
+    });
+  }
+
   // Video unmute toggle (autoplay muted + tap for sound)
   document.querySelectorAll('.vid-sound').forEach(function (btn) {
     var vid = btn.parentNode.querySelector('video');
