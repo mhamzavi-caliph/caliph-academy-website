@@ -1101,7 +1101,7 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
 .blog-noresult{ text-align:center; color:var(--muted); font-size:1.02rem; padding:2.5rem 0 1rem; }
 
 /* 3 columns on wide screens so more posts fit */
-@media (min-width:1080px){ .soro-blog-list{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:1000px){ .soro-blog-list{ grid-template-columns:repeat(3,1fr); } }
 
 /* while searching, drop the full-width featured treatment so results are uniform */
 .soro-blog-list.searching .soro-blog-card:first-child{ grid-column:auto; flex-direction:column; }
