@@ -900,7 +900,7 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 
 /* container + list grid */
 .soro-blog-content{ max-width:1120px; margin:0 auto; }
-.soro-blog-list{ display:grid; grid-template-columns:repeat(2, 1fr); gap:2rem; }
+.soro-blog-list{ display:grid !important; grid-template-columns:repeat(2, 1fr) !important; gap:2rem !important; }
 
 /* card */
 .soro-blog-card{
@@ -947,7 +947,7 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 
 /* FEATURED first card — full-width magazine hero */
 .soro-blog-list .soro-blog-card:first-child{
-  grid-column:1 / -1; flex-direction:row; align-items:stretch;
+  grid-column:1 / -1 !important; flex-direction:row; align-items:stretch;
 }
 .soro-blog-list .soro-blog-card:first-child .soro-blog-card-image{
   width:52%; height:auto; min-height:340px; flex:none;
@@ -965,7 +965,7 @@ table.fee-table { width: 100%; border-collapse: collapse; min-width: 720px; font
 
 /* responsive */
 @media (max-width:640px){
-  .soro-blog-list{ grid-template-columns:1fr; gap:1.6rem; }
+  .soro-blog-list{ grid-template-columns:1fr !important; gap:1.6rem !important; }
   .soro-blog-list .soro-blog-card:first-child{ flex-direction:column; }
   .soro-blog-list .soro-blog-card:first-child .soro-blog-card-image{ width:100%; min-height:0; height:240px; }
   .soro-blog-list .soro-blog-card:first-child .soro-blog-card-content{ padding:1.6rem 1.7rem 1.9rem; }
@@ -1101,7 +1101,7 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
 .blog-noresult{ text-align:center; color:var(--muted); font-size:1.02rem; padding:2.5rem 0 1rem; }
 
 /* 3 columns on wide screens so more posts fit */
-@media (min-width:960px){ .soro-blog-list{ grid-template-columns:repeat(3,1fr); } }
+@media (min-width:960px){ .soro-blog-list{ grid-template-columns:repeat(3,1fr) !important; } }
 
 /* while searching, drop the full-width featured treatment so results are uniform */
 .soro-blog-list.searching .soro-blog-card:first-child{ grid-column:auto; flex-direction:column; }
