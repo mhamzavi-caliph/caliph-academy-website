@@ -1206,3 +1206,27 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
   .partners-logos img{ height:54px; }
   .partners-logos .pl-plate{ min-height:90px; padding:1.1rem 1.3rem; }
 }
+
+/* ---- Study route diagram ---- */
+.sroute{ max-width:920px; margin:0 auto; }
+.snode{ border-radius:16px; padding:1.1rem 1.4rem; text-align:center; }
+.snode b{ display:block; font-family:var(--serif); font-size:1.15rem; color:var(--teal-900); line-height:1.2; }
+.snode span{ display:block; font-size:.9rem; color:var(--body); margin-top:.35rem; line-height:1.4; }
+.snode.start,.snode.end{ background:var(--teal-800); max-width:440px; margin:0 auto; }
+.snode.start b,.snode.end b{ color:#fff; }
+.snode.start span,.snode.end span{ color:rgba(255,255,255,.85); }
+.snode.dd{ background:linear-gradient(135deg,var(--gold-500),var(--gold-600)); }
+.snode.dd b{ color:var(--teal-900); font-size:1.28rem; }
+.snode.dd span{ color:rgba(10,46,47,.82); font-weight:600; }
+.sarrow{ text-align:center; color:var(--gold-600); font-size:1.6rem; font-weight:800; margin:.5rem 0; line-height:1; }
+.sarrow.split{ font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; color:#7b8483; font-weight:800; margin:.9rem 0; }
+.sbranch{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+.snode.uk,.snode.local{ background:#fff; text-align:left; box-shadow:var(--shadow-sm); }
+.snode.uk{ border:2px solid var(--teal-700); }
+.snode.local{ border:2px solid var(--gold-600); }
+.snode.uk b,.snode.local b{ font-size:1.12rem; }
+.snode.uk span,.snode.local span{ text-align:left; }
+.snode .tag{ display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-600); margin-bottom:.3rem; }
+.snode.uk .tag{ color:var(--teal-700); }
+.sfields{ font-size:.86rem; color:var(--teal-800); font-weight:600; margin-top:.5rem; line-height:1.7; }
+@media (max-width:640px){ .sbranch{ grid-template-columns:1fr; } .snode.start,.snode.end{ max-width:none; } }
