@@ -1137,3 +1137,34 @@ tr.course-desc td{ padding:0 !important; border-top:0 !important; background:var
 .uog-gallery img{ width:100%; height:220px; object-fit:cover; display:block; }
 @media (max-width:820px){ .uog-gallery{ grid-template-columns:1fr 1fr; } }
 @media (max-width:520px){ .uog-gallery{ grid-template-columns:1fr; } }
+
+/* ---- LOYLA Flight Scholarship ---- */
+.split-align-start{ align-items:start; }
+.scholar-ticket{
+  display:flex; flex-direction:column; gap:.15rem;
+  background:linear-gradient(135deg,var(--teal-800),var(--teal-700));
+  color:#fff; border-radius:var(--radius); padding:1.5rem 1.75rem;
+  box-shadow:var(--shadow-md); margin-bottom:1.4rem;
+  border:1px solid rgba(245,185,55,.35);
+}
+.scholar-ticket .st-label{ font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:#cfe0df; }
+.scholar-ticket .st-price{ font-family:var(--serif); font-size:3rem; line-height:1; font-weight:700; color:var(--gold-500); }
+.scholar-ticket .st-note{ font-size:.85rem; color:#e7efee; font-weight:600; }
+.scholar-notcovered{
+  background:var(--gold-100); border:1px solid rgba(224,164,31,.35);
+  border-radius:var(--radius); padding:1.5rem 1.75rem; box-shadow:var(--shadow-sm);
+}
+.scholar-notcovered h3{ font-family:var(--serif); color:var(--teal-800); font-size:1.15rem; margin:0 0 .9rem; }
+.scholar-notcovered ul{ list-style:none; margin:0; padding:0; }
+.scholar-notcovered li{
+  display:flex; justify-content:space-between; align-items:baseline; gap:1rem;
+  padding:.6rem 0; border-bottom:1px dashed rgba(224,164,31,.4);
+}
+.scholar-notcovered li:last-child{ border-bottom:0; }
+.scholar-notcovered li span{ color:var(--body); }
+.scholar-notcovered li strong{ color:var(--teal-800); white-space:nowrap; font-weight:700; }
+.scholar-notcovered li small{ font-weight:600; color:var(--gold-600); }
+@media (max-width:520px){
+  .scholar-notcovered li{ flex-direction:column; gap:.15rem; }
+  .scholar-ticket .st-price{ font-size:2.4rem; }
+}
