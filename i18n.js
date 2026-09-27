@@ -546,7 +546,13 @@
     "Year 3 · Semester 2": "Tahun 3 · Semester 2",
     "Year 3 · Semester 3": "Tahun 3 · Semester 3",
     "Year 4 · Semester 1": "Tahun 4 · Semester 1",
-    "Year 4 · Semester 2": "Tahun 4 · Semester 2"
+    "Year 4 · Semester 2": "Tahun 4 · Semester 2",
+
+    /* ===== RECOGNITION / FELLOWSHIP (about) ===== */
+    "Recognition": "Pengiktirafan",
+    "A partnership recognised at the highest level": "Perkongsian yang diiktiraf di peringkat tertinggi",
+    "In 2025, UTMSpace Services Sdn Bhd — the professional and continuing education arm of Universiti Teknologi Malaysia — conferred the Fellowship of its Centre of Excellence upon our founder, Mr. Mohd Hamzavi bin Md Zain.": "Pada 2025, <strong>UTMSpace Services Sdn Bhd</strong> — cabang pendidikan profesional dan berterusan Universiti Teknologi Malaysia — menganugerahkan Felo <strong>Pusat Kecemerlangan</strong> kepada pengasas kami, Encik Mohd Hamzavi bin Md Zain.",
+    "Admitted as a Distinguished Fellow, the honour recognises outstanding contribution and dedication to professional advancement — and reflects the strength of the partnership behind the Double Diploma.": "Diterima sebagai <strong>Felo Terbilang</strong>, penghormatan ini mengiktiraf sumbangan cemerlang dan dedikasi terhadap kemajuan profesional — dan mencerminkan kekukuhan perkongsian di sebalik Diploma Berkembar."
   };
 
   function norm(s) {
