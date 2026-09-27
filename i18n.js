@@ -7,6 +7,7 @@
     /* ---------- Nav ---------- */
     "Home ▾": 'Utama <span class="nav-caret" aria-hidden="true">▾</span>',
     "Curriculum ▾": 'Kurikulum <span class="nav-caret" aria-hidden="true">▾</span>',
+    "Admissions ▾": 'Kemasukan <span class="nav-caret" aria-hidden="true">▾</span>',
     "About": "Tentang Kami",
     "The Programme": "Program",
     "Curriculum Structure": "Struktur Kurikulum",
