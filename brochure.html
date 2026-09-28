@@ -114,6 +114,25 @@ h1,h2,h3,h4{font-family:var(--serif); color:var(--ink); margin:0; line-height:1.
 .desc-item{ break-inside:avoid; -webkit-column-break-inside:avoid; padding:4.5pt 0 4.5pt 9pt; border-left:2pt solid var(--gold-500); margin-bottom:6pt; }
 .desc-item h4{ font-family:var(--serif); font-size:8.6pt; color:var(--teal-800); margin:0 0 1.5pt; line-height:1.1; }
 .desc-item p{ margin:0; font-size:7.2pt; line-height:1.42; color:var(--body); }
+/* fees schedule page */
+.fsub{ font-family:var(--serif); font-size:12pt; color:var(--teal-800); font-weight:600; margin:14pt 0 0; }
+.fsub .dot{ display:inline-block; width:8pt; height:8pt; border-radius:50%; background:var(--teal-700); margin-right:6pt; vertical-align:middle; }
+.fsub.intl .dot{ background:var(--gold-600); }
+.ftbl{ width:100%; border-collapse:collapse; font-size:8.2pt; margin-top:7pt; border-radius:9pt; overflow:hidden; }
+.ftbl th{ background:var(--teal-800); color:#fff; padding:5.5pt 6pt; text-align:right; font-size:7.2pt; text-transform:uppercase; letter-spacing:.03em; font-weight:700; }
+.ftbl th:first-child{ text-align:left; }
+.ftbl th:last-child{ color:var(--gold-500); }
+.ftbl.intl th{ background:var(--gold-600); color:var(--teal-900); }
+.ftbl.intl th:last-child{ background:var(--teal-800); color:var(--gold-500); }
+.ftbl td{ padding:5pt 6pt; text-align:right; border-bottom:.5pt solid var(--line); }
+.ftbl td:first-child{ text-align:left; font-weight:600; color:var(--ink); }
+.ftbl td:last-child{ font-weight:700; color:var(--teal-800); }
+.ftbl tr.rt td{ background:#eef3f2; font-weight:700; color:var(--teal-800); }
+.ftbl tr.rt td:last-child{ color:var(--gold-600); }
+.ftbl tr.rd td{ color:#c0392b; }
+.ftbl tr.rd td:first-child{ color:#c0392b; }
+.ftbl tr.rb td{ background:#eef3f2; font-weight:700; color:var(--teal-800); }
+.ftbl tr:last-child td{ border-bottom:0; }
 </style>
 </head>
 <body>
@@ -522,7 +541,53 @@ h1,h2,h3,h4{font-family:var(--serif); color:var(--ink); margin:0; line-height:1.
   </div>
 </section>
 
-<!-- ====================== PAGE 8 · FEES, ADMISSIONS & CONTACT ====================== -->
+<!-- ====================== PAGE 8 · FEES SCHEDULE (PER SEMESTER) ====================== -->
+<section class="page">
+  <div class="pad">
+    <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">Fees Schedule</span></div>
+
+    <span class="eyebrow">Per-Semester Breakdown · 7 Semesters</span>
+    <h2 class="stitle">Fees schedule (RM)</h2>
+    <p class="lead">A transparent, semester-by-semester breakdown of the full programme fee — the same Double Diploma, payable in manageable stages across your studies.</p>
+
+    <div class="fsub"><span class="dot"></span>Local Students (RM)</div>
+    <table class="ftbl">
+      <thead><tr><th>Local</th><th>Sem 1</th><th>Sem 2</th><th>Sem 3</th><th>Sem 4</th><th>Sem 5</th><th>Sem 6</th><th>Sem 7</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Registration Fee</td><td>430</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>430</td></tr>
+        <tr><td>Service Fee</td><td>410</td><td>410</td><td>410</td><td>410</td><td>410</td><td>410</td><td>410</td><td>2,870</td></tr>
+        <tr><td>Tuition Fee</td><td>15,921</td><td>3,100</td><td>3,100</td><td>3,100</td><td>3,100</td><td>3,100</td><td>3,100</td><td>34,521</td></tr>
+        <tr class="rt"><td>Total Programme Fee</td><td>16,761</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>37,821</td></tr>
+        <tr class="rd"><td>Less: Initial Fee</td><td>(9,821)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>(9,821)</td></tr>
+        <tr class="rb"><td>Balance Payable</td><td>6,940</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>3,510</td><td>28,000</td></tr>
+      </tbody>
+    </table>
+
+    <div class="fsub intl"><span class="dot"></span>International Students (RM)</div>
+    <table class="ftbl intl">
+      <thead><tr><th>International</th><th>Sem 1</th><th>Sem 2</th><th>Sem 3</th><th>Sem 4</th><th>Sem 5</th><th>Sem 6</th><th>Sem 7</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Admission Fee</td><td>500</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>500</td></tr>
+        <tr><td>Registration Fee</td><td>500</td><td>500</td><td>500</td><td>500</td><td>500</td><td>500</td><td>500</td><td>3,500</td></tr>
+        <tr><td>Service Fee</td><td>800</td><td>800</td><td>800</td><td>800</td><td>800</td><td>800</td><td>800</td><td>5,600</td></tr>
+        <tr><td>Tuition Fee</td><td>17,121</td><td>4,300</td><td>4,300</td><td>4,300</td><td>4,300</td><td>4,300</td><td>4,300</td><td>42,921</td></tr>
+        <tr class="rt"><td>Total Programme Fee</td><td>18,921</td><td>5,600</td><td>5,600</td><td>5,600</td><td>5,600</td><td>5,600</td><td>5,600</td><td>52,521</td></tr>
+      </tbody>
+    </table>
+
+    <div class="mini" style="margin-top:13pt; background:var(--soft); display:flex; gap:14pt; flex-wrap:wrap;">
+      <span style="font-size:8.7pt;"><b>🎓 PTPTN Financing</b> — national higher-education loan.</span>
+      <span style="font-size:8.7pt;"><b>💰 KWSP (EPF) Withdrawal</b> — education withdrawal.</span>
+      <span style="font-size:7.5pt; color:var(--muted); align-self:center;">Instalment plans may be available.</span>
+    </div>
+
+    <p style="font-size:7.8pt; color:var(--muted); margin-top:9pt;">Fees are indicative and subject to change. Contact our admissions team for the latest fee schedule, scholarships and payment options.</p>
+
+    <div class="rfoot"><span>Fees &amp; Admissions · per-semester schedule</span><span><b>caliphacademy.com</b></span></div>
+  </div>
+</section>
+
+<!-- ====================== PAGE 9 · FEES, ADMISSIONS & CONTACT ====================== -->
 <section class="page">
   <div class="pad">
     <div class="rhead"><img src="img/logo.png" alt="Caliph Academy"><span class="rt">Fees &amp; Admissions</span></div>
